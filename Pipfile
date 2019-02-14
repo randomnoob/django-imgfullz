@@ -12,6 +12,8 @@ django = "*"
 ipython = "*"
 pylint = "*"
 mysqlclient = "==1.4.2"
+jinja2 = "*"
+progressbar = "*"
 
 [requires]
 python_version = "3.6"

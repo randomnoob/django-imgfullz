@@ -14,7 +14,9 @@ class Post(models.Model):
 
 class Images(models.Model):
     link = models.CharField(max_length=250)
-    description = models.CharField(max_length=250)
-    source = models.CharField(max_length=250)
+    description = models.CharField(max_length=250, null=True)
+    source_page = models.CharField(max_length=250)
+    source_page_title = models.CharField(max_length=300, null=True)
+    source_site_title = models.CharField(max_length=250, null=True)
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name='images')
