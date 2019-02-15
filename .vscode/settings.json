@@ -8,5 +8,5 @@
         "**/*.pyc": true,
         "**/__pycache__": true
     },
-    "python.pythonPath": "/home/nl/.local/share/virtualenvs/django-aG_6BzzO/bin/python"
+    "python.pythonPath": "/usr/bin/python"
 }

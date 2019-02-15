@@ -32,16 +32,10 @@ class Command(BaseCommand):
     help = 'our help string comes here'
 
     @staticmethod
-    def get_files(path):
-        all_files = []
-        for root, dirs, files in os.walk(path):
-            for file in files:
-                fullpath = path + '/' + file
-                if os.path.isfile(fullpath):
-                    # first the path, then the filename
-                    tup = (fullpath, os.path.splitext(file)[0])
-                    all_files.append(tup)
-        return all_files
+    def get_files(directory):
+        for dirpath,_,filenames in os.walk(directory):
+            for f in filenames:
+                yield os.path.abspath(os.path.join(dirpath, f))
 
     def parse_json(self, json_path):
         with open(json_path, 'r') as input:
@@ -51,16 +45,19 @@ class Command(BaseCommand):
             texts = [x['s'] for x in reader['metadata']]
             joined_texts = ' '.join(texts)
             _user, user_is_created = get_user_model().objects.get_or_create(pk=1)
-            print('settings.AUTH_USER_MODEL       :', _user)
             _post, post_is_created = Post.objects.get_or_create(
                             author=_user, title=keyword, text=joined_texts)
             for item in reader['metadata']:
-                print (item)
+                print ('{}\n\n'.format(item))
                 obj, created = Images.objects.get_or_create(post=_post, link=item['ou'], description=item['s'],
                                                             source_page=item.get('ru'), source_page_title=item.get('pt'),
                                                             source_site_title=item.get('st'))
                 metadata.append((obj))
 
+    def parse_all_directory(self, path):
+        all_files = self.get_files(path)
+        for file in all_files:
+            self.parse_json(file)
+
     def handle(self, *args, **options):
-        self.parse_json(
-            '/home/nl/dev/django/imgfullz/downloaded-json/alum.json')
+        self.parse_all_directory(DATA_INPUT_PATH)
