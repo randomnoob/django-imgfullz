@@ -13,9 +13,9 @@ def cvdb2utf8():
         results.append(row)
 
     for row in results: 
-        cursor.execute('ALTER TABLE %s CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;' % (row[0]))
+        cursor.execute('ALTER TABLE %s CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;' % (row[0]))
 
-    cursor.execute('ALTER DATABASE %s CHARACTER SET utf8;' % settings.DATABASES['default']['NAME']) 
+    cursor.execute('ALTER DATABASE %s CHARACTER SET utf8mb4;' % settings.DATABASES['default']['NAME']) 
 
 
 def map_nested_dicts(obj, func):
@@ -25,6 +25,8 @@ def map_nested_dicts(obj, func):
     else:
         return func(obj)
 
-def test():
-    t = map_nested_dicts(test_dict, lambda x:x.encode('utf8'))
-    print (t)
+# def test():
+    # t = map_nested_dicts(test_dict, lambda x:x.encode('utf8mb4'))
+    # print (t)
+    
+cvdb2utf8()

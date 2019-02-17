@@ -11,10 +11,11 @@ autopep8 = "*"
 django = "*"
 ipython = "*"
 pylint = "*"
-mysqlclient = "==1.4.2"
 jinja2 = "*"
 progressbar = "*"
 emoji = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.6"

@@ -76,10 +76,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'my.cnf'),
-        },
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'imgcore',
+        'USER': 'imgcore',
+        'PASSWORD': 'mangto535',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

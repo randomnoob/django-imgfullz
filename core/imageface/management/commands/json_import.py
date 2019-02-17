@@ -6,7 +6,6 @@ from imageface.models import Post, Images
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from django.db.utils import DataError
-import emoji
 
 
 DATA_INPUT_PATH = '/home/nl/dev/django/imgfullz/downloaded-json/'
@@ -43,13 +42,6 @@ class Command(BaseCommand):
             for f in filenames:
                 yield os.path.abspath(os.path.join(dirpath, f))
 
-    @staticmethod
-    def ensure_utf8(dictionary):
-        for key, value in dictionary.items():
-            if isinstance(value, str):
-                dictionary[key] = emoji.demojize(value)
-        return dictionary
-
     def parse_json(self, json_path):
         try:
             with open(json_path, 'r') as input:
@@ -57,14 +49,12 @@ class Command(BaseCommand):
                 keyword = reader['keyword']
                 metadata = []
                 texts = [x['s'] for x in reader['metadata']]
-                joined_texts = ' '.join(texts).encode('utf8')
+                joined_texts = ' '.join(texts)
                 _user, user_is_created = get_user_model().objects.get_or_create(pk=1)
                 _post, post_is_created = Post.objects.get_or_create(
                     author=_user, title=keyword, text=joined_texts)
+                print('-----\n{}\n-----'.format(keyword))
                 for item in reader['metadata']:
-                    print('-----\n{}\n{}\n\n-----'.format(keyword, item))
-                    print(
-                        '-----\nDEMOJIZED\n{}\n{}\n\n-----'.format(keyword, self.ensure_utf8(item)))
                     obj, created = Images.objects.get_or_create(post=_post,\
                                                                 link=item['ou'], \
                                                                 description=item['s'], \
@@ -77,8 +67,10 @@ class Command(BaseCommand):
 
     def parse_all_directory(self, path):
         all_files = self.get_files(path)
-        for file in all_files:
+        for index, file in enumerate(all_files):
+            print ("Processing entry number {}".format(index+1))
             self.parse_json(file)
 
+    @timeit
     def handle(self, *args, **options):
         self.parse_all_directory(DATA_INPUT_PATH)
