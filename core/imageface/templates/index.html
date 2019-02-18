@@ -1,0 +1,555 @@
+{% load static %}
+<html lang="en-US">
+
+<head>
+    <title>Rea - Html Responsive Template</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Template by Dry Themes" />
+    <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
+    <meta name="author" content="DryThemes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel="{% static 'stylesheet' %}"
+        type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/clear.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/carouFredSel.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animated-headline.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sm-clean.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+    <!--[if lt IE 9]>
+                <script src="{% static 'js/html5shiv.js' %}"></script>                
+                <script src="{% static 'js/respond.min.js' %}"></script>                
+        <![endif]-->
+
+</head>
+
+<body class="blog">
+
+
+    <div class="menu-wraper center-relative">
+        <nav id="header-main-menu" class="big-menu">
+            <ul class="main-menu sm sm-clean">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+                <li>
+                    <a href="features.html">Features</a>
+                </li>
+            </ul>
+            <form role="search" class="search-form">
+                <label>
+                    <input autocomplete="off" type="search" class="search-field" placeholder="Search" value="" name="s"
+                        title="Search for:">
+                    <span class="search-info">search anything &amp; hit enter</span>
+                </label>
+            </form>
+        </nav>
+        <div class="clear"></div>
+        <div class="menu-social">
+            <a href="#">
+                <span class="fa fa-twitter"></span>
+            </a>
+            <a href="#">
+                <span class="fa fa-behance"></span>
+            </a>
+            <a href="#">
+                <span class="fa fa-dribbble"></span>
+            </a>
+            <a href="#">
+                <span class="fa fa-facebook"></span>
+            </a>
+            <a href="#">
+                <span class="fa fa-rss"></span>
+            </a>
+        </div>
+    </div>
+
+    <header class="header-holder center-relative relative">
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="{% static 'images/reaDefaultLogo.png' %}" alt="Rea">
+            </a>
+        </div>
+        <div class="header-txt">
+            <h1 class="entry-title">
+                <span class="entry-title cd-headline letters type">
+                    <span>pixel preciese</span>
+                    <span class="cd-words-wrapper waiting">
+                        <b class="is-visible">web resources</b>
+                        <b>psd files</b>
+                        <b>mockups</b>
+                    </span>
+                    <span class="sec-line">to suit all your needs.</span>
+                </span>
+            </h1>
+        </div>
+
+
+        <div class="clear"></div>
+    </header>
+
+    <div id="blog-holder">
+        <div class="blog-background"></div>
+        <div class="grid">
+            <div class="grid-sizer"></div>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_04.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_04b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">464</span>
+                        <span class="down">
+                            <span class="count">183</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Fonts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Octanis Font</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_05.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_05b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">379</span>
+                        <span class="down">
+                            <span class="count">60</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Misc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Greeting Card</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_04.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_04b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">464</span>
+                        <span class="down">
+                            <span class="count">183</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Fonts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Octanis Font</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_05.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_05b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">379</span>
+                        <span class="down">
+                            <span class="count">60</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Misc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Greeting Card</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_04.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_04b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">464</span>
+                        <span class="down">
+                            <span class="count">183</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Fonts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Octanis Font</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_05.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_05b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">379</span>
+                        <span class="down">
+                            <span class="count">60</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Misc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Greeting Card</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_04.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_04b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">464</span>
+                        <span class="down">
+                            <span class="count">183</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Fonts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Octanis Font</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_05.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_05b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">379</span>
+                        <span class="down">
+                            <span class="count">60</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Misc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Greeting Card</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_04.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_04b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">464</span>
+                        <span class="down">
+                            <span class="count">183</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Fonts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Octanis Font</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_05.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_05b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">379</span>
+                        <span class="down">
+                            <span class="count">60</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Misc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Greeting Card</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_04.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_04b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">464</span>
+                        <span class="down">
+                            <span class="count">183</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Fonts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Octanis Font</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_05.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_05b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">379</span>
+                        <span class="down">
+                            <span class="count">60</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Misc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Greeting Card</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_04.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_04b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">464</span>
+                        <span class="down">
+                            <span class="count">183</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Fonts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Octanis Font</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_05.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_05b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">379</span>
+                        <span class="down">
+                            <span class="count">60</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Misc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Greeting Card</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_04.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_04b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">464</span>
+                        <span class="down">
+                            <span class="count">183</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Fonts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Octanis Font</a>
+                    </h2>
+                </div>
+            </article>
+
+            <article class="grid-item element-item p_one_fourth">
+                <a class="img relative" href="single.html">
+                    <img src="{% static 'demo-images/item_image_05.jpg' %}" alt="">
+                    <img class="hover-img" src="{% static 'demo-images/item_image_05b.jpg' %}" alt="">
+                    <div class="item-info">
+                        <span class="prev">379</span>
+                        <span class="down">
+                            <span class="count">60</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="entry-content">
+                    <div class="cat-links">
+                        <ul>
+                            <li>
+                                <a href="#">Misc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="single.html">Greeting Card</a>
+                    </h2>
+                </div>
+            </article>
+
+        </div>
+        <div class="clear"></div>
+
+
+        <img class="blog-img" src="{% static 'demo-images/blog-img.png' %}" alt="">
+    </div>
+
+    <div class="clear"></div>
+
+    <footer class="footer">
+        <div class="content-1170 center-relative">
+            <ul id="footer-sidebar">
+
+                <li class="widget">
+                    <div class="textwidget custom-html-widget">
+                        <a href="#"><span class="fa fa-twitter"></span></a>
+                        <a href="#"><span class="fa fa-behance"></span></a>
+                        <a href="#"><span class="fa fa-dribbble"></span></a>
+                        <a href="#"><span class="fa fa-facebook"></span></a>
+                        <a href="#"><span class="fa fa-rss"></span></a>
+
+                        <br>
+                        <br>
+
+                        Copyright &copy;2019 All rights reserved | Made with <i class="fa fa-heart-o"
+                            aria-hidden="true"></i> by <a href="/" target="_blank">Fanabe</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!--Load JavaScript-->
+    <!-- <script src="{% static 'js/jquery.js' %}"></script>			                                       
+        <script src="{% static 'js/jquery.fitvids.js' %}"></script>
+        <script src="{% static 'js/jquery.smartmenus.min.js' %}"></script>        
+        <script src="{% static 'js/imagesloaded.pkgd.js' %}"></script>         -->
+    <!-- <script src="{% static 'js/isotope.pkgd.js' %}"></script>         -->
+    <!-- <script src="{% static 'js/jquery.carouFredSel-6.0.0-packed.js' %}"></script> -->
+    <!-- <script src="{% static 'js/jquery.mousewheel.min.js' %}"></script> -->
+    <!-- <script src="{% static 'js/jquery.touchSwipe.min.js' %}"></script> -->
+    <!-- <script src="{% static 'js/jquery.easing.1.3.js' %}"></script> -->
+    <!-- <script src="{% static 'js/main-headline.js' %}"></script> -->
+    <!-- <script src="{% static 'js/jquery.sticky-kit.min.js' %}"></script> -->
+    <!-- <script src="{% static 'js/jquery.ba-throttle-debounce.min.js' %}"></script>                 -->
+    <!-- <script src="{% static 'js/jquery.nicescroll.min.js' %}"></script> -->
+    <!-- <script src="{% static 'js/main.js' %}"></script> -->
+</body>
+
+</html>

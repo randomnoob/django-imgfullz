@@ -17,5 +17,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.imageface_index, name='imageface_index'),
+    path('', views.HomeView.as_view(), name='home'),
 ]
