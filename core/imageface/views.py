@@ -10,7 +10,7 @@ from .models import Post
 
 class HomeView(ListView):
     model = Post
-    template_name = 'index.html'
+    template_name = 'album.html'
 
 class SingleView(DetailView):
     model = Post

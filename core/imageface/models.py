@@ -22,12 +22,14 @@ class Post(models.Model):
         return data.get('metadata')[0]['ou']
 
     @property
+    def thumbnail_description(self):
+        "Returns the first image found in obj.contents"
+        data = json.loads(self.contents)
+        return data.get('metadata')[0]['s']
+
+    @property
     def images(self):
         "Returns a list of all image urls from obj.contents"
         data = json.loads(self.contents)
         return [x['ou'] for x in data['metadata'] if x.get('ou')]
 
-    @property
-    def views(self):
-        "Returns a random view count"
-        return random.randint(300,3000)
