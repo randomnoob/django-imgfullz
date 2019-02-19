@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 
@@ -11,3 +11,7 @@ from .models import Post
 class HomeView(ListView):
     model = Post
     template_name = 'index.html'
+
+class SingleView(DetailView):
+    model = Post
+    template_name = 'single.html'

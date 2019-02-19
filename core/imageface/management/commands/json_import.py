@@ -1,7 +1,7 @@
 import os
 import json
 import time
-from progressbar import ProgressBar
+import traceback
 from imageface.models import Post
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
@@ -49,46 +49,21 @@ class Command(BaseCommand):
                 reader = json.load(input)
                 keyword = reader['keyword']
                 slug = slugify(keyword, allow_unicode=True)
-                metadata = []
                 texts = [x['s'] for x in reader['metadata']]
                 joined_texts = ' '.join(texts)
                 _user, user_is_created = get_user_model().objects.get_or_create(pk=1)
                 _post, post_is_created = Post.objects.get_or_create(
-                    author=_user, title=keyword, text=joined_texts, slug=slug)
-                print('-----\n{} ==> {}\n-----'.format(keyword, slug))
-                for item in reader['metadata']:
-                    obj, created = Images.objects.get_or_create(post=_post,
-                                                                link=item['ou'],
-                                                                description=item['s'],
-                                                                source_page=item.get(
-                                                                    'ru'),
-                                                                source_page_title=item.get(
-                                                                    'pt'),
-                                                                source_site_title=item.get('st'))
-                    obj.post = _post
-        except DataError:
-            pass
-
-    def parse_json2(self, json_path):
-        try:
-            with open(json_path, 'r') as input:
-                reader = json.load(input)
-                keyword = reader['keyword']
-                slug = slugify(keyword, allow_unicode=True)
-                texts = [x['s'] for x in reader['metadata']]
-                joined_texts = ' '.join(texts)
-                _user, user_is_created = get_user_model().objects.get_or_create(pk=1)
-                _post, post_is_created = Post.objects.get_or_create(
-                    author=_user, title=keyword, text=joined_texts, contents=str(reader), slug=slug)
+                    author=_user, title=keyword, slug=slug, text=joined_texts, contents=json.dumps(reader))
                 print('-----\n{} ==> {}\n-----'.format(keyword, slug))
         except DataError:
+            traceback.print_exc()
             pass
 
     def parse_all_directory(self, path):
         all_files = self.get_files(path)
         for index, file in enumerate(all_files):
             print("Processing entry number {}".format(index+1))
-            self.parse_json2(file)
+            self.parse_json(file)
 
     @timeit
     def handle(self, *args, **options):

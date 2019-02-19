@@ -18,4 +18,5 @@ from . import views
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
+    path('post/<int:pk>/', views.SingleView.as_view(), name='single_post'),
 ]

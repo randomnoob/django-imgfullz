@@ -481,11 +481,12 @@ body a:hover
 .grid-item img 
 {
     display: block;
-    width: auto;
+    width: 100%;
     height: 300px;
     max-height: none;
     max-width: none;
     border-radius: 2px 2px 0 0;
+    object-fit: cover;
 }
 
 .grid-sizer, .grid-item, .grid-item.p_one_fourth
@@ -578,7 +579,7 @@ span.down:before
 #blog-holder article .entry-content 
 {
     background-color: #fff;
-    padding: 25px;
+    padding: 20px;
     border-radius: 0 0 2px 2px;
     min-height: 64px;
 }
@@ -1460,4 +1461,9 @@ footer .fa-heart
         width: 100%;
     }
 
+}
+
+.entry-title a{
+    font-size: 0.85em;
+    font-weight: bold;
 }

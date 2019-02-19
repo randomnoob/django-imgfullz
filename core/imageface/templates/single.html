@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+<div id="blog-holder">
+    <div class="blog-background"></div>
+    <div class="grid">
+
+        {% for image_url in post.images %}
+        <article class="grid-item element-item p_one_fourth">
+            <a class="img relative" href="{{ image_url }}">
+                <img src="{{ image_url }}" alt="">
+            </a>
+        </article>
+        {% endfor %}
+        <br>
+        <div class="clear"></div>
+        <div class="content-wrap">
+            <p>{{ post.text }}</p>
+        </div>
+
+    </div>
+
+    {% endblock content %}
