@@ -1,4 +1,7 @@
 {% extends 'album.html' %}
+{% load social_share %}
+
+{% block title %}{{ post.title|title }}{% endblock title %}
 
 {% block content %}
 <div class="container">
@@ -6,14 +9,14 @@
         <div class="col-md-8 blog-main">
             <div class="blog-post">
                 <h2 class="blog-post-title">{{post.title|title}}</h2>
-                <p class="blog-post-meta">{{post.published_date}}</p>
+                <p class="blog-post-meta">{{post.published_date|date}}</p>
 
                 <hr>
                 <div class="card-deck">
                     {% for image_entry in paginated_images %}
                     <div class="card my-2">
                         <a href="{{ image_entry.ou }}">
-                            <img class="card-img-top post-thumbnail" src="{{ image_entry.ou }}"
+                            <img class="card-img-top detail-thumbnail" src="{{ image_entry.ou }}"
                                 alt="{{ image_entry.s|title }}">
                         </a>
                     </div>
@@ -24,32 +27,40 @@
                     <ul class="pagination justify-content-center blog-pagination">
                         {% if paginated_images.has_previous %}
                         <li class="page-item">
-                                <a class="page-link" href="?page=1"
-                                    tabindex="-1">First</a>
-                            </li>
+                            <a class="page-link" href="?page=1" tabindex="-1">Trang 1</a>
+                        </li>
                         <li class="page-item">
                             <a class="page-link" href="?page={{ paginated_images.previous_page_number }}"
-                                tabindex="-1">Previous</a>
+                                tabindex="-1">Trang trước</a>
                         </li>
                         {% else %}
                         <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            <a class="page-link" href="#" tabindex="-1">Trang trước</a>
                         </li>
                         {% endif %}
-                        <li class="page-item"><a class="page-link" href="#">Page {{ paginated_images.number }} of
+                        <li class="page-item"><a class="page-link" href="#">Trang {{ paginated_images.number }}/
                                 {{ paginated_images.paginator.num_pages }}</a>
                         </li>
                         {% if paginated_images.has_next %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ paginated_images.next_page_number }}">Next</a>
+                            <a class="page-link" href="?page={{ paginated_images.next_page_number }}">Trang tiếp</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ paginated_images.paginator.num_pages }}">Last</a>
+                            <a class="page-link" href="?page={{ paginated_images.paginator.num_pages }}">Trang cuối</a>
                         </li>
                         {% endif %}
                     </ul>
                 </nav>
 
+                <div class="d-flex justify-content-around ml-5 mr-5 flex-wrap">
+                    {% post_to_facebook request.build_absolute_uri %}
+                    {% post_to_twitter "New Song: {{post.title}}. Check it out!" object_or_url "Post to Twitter" %}
+                    {% post_to_gplus request.build_absolute_uri "Post to Google+!" %}
+                    {% post_to_linkedin post.title request.build_absolute_uri "Post to LinkedIn" %}
+                    {% send_email post.title "New Song: {{post.title}}. Check it out!" object_or_url "Share via email" %}
+                    {% post_to_reddit "New Song: {{post.title}}" request.build_absolute_uri %}
+                    {% post_to_telegram "New Song: {{post.title}}" request.build_absolute_uri %}
+                </div>
 
                 <div class="blog-post-content mt-10">
                     <p>{{paginated_text|title}}</p>
@@ -72,6 +83,10 @@
                         <img class="card-img-top sidebar-post-thumbnail" src="{{ post.thumbnail }}"
                             alt="{{ post.title }}">
                     </a>
+                    <div class="card-body">
+                        <a href="{% url 'single_post_slug' post.slug post.pk %}"
+                            class="card-title text-center text-capitalize text-info">{{ post.title }}</a>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -84,18 +99,15 @@
                         <img class="card-img-top sidebar-post-thumbnail" src="{{ post.thumbnail }}"
                             alt="{{ post.title }}">
                     </a>
+                    <div class="card-body">
+                        <a href="{% url 'single_post_slug' post.slug post.pk %}"
+                            class="card-title text-center text-capitalize text-info">{{ post.title }}</a>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
 
-            <div class="p-3">
-                <h4 class="font-italic">Elsewhere</h4>
-                <ol class="list-unstyled">
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Facebook</a></li>
-                </ol>
-            </div>
+
         </aside><!-- /.blog-sidebar -->
 
     </div>

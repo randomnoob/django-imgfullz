@@ -16,6 +16,7 @@ progressbar = "*"
 emoji = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
+django-social-share = "*"
 
 [requires]
 python_version = "3.6"

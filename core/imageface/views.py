@@ -4,20 +4,6 @@ from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Post
 
-def get_redirected(queryset_or_class, lookups, validators):
-    """
-    Calls get_object_or_404 and conditionally builds redirect URL
-    """
-    obj = get_object_or_404(queryset_or_class, **lookups)
-    for key, value in validators.items():
-        if value != getattr(obj, key):
-            return obj, obj.get_absolute_url()
-    return obj, None
-
-def my_view(request, slug, id):
-    article, article_url = get_redirected(Post, {'pk': id}, {'slug': slug})
-    if article_url:
-        return redirect(article_url)
 
 
 class HomeView(ListView):
@@ -58,6 +44,6 @@ class SinglePostSlugView(DetailView):
 
         posts = Post.objects.filter(published_date__lte=timezone.now())
         context['last_posts'] = posts[:6]
-        context['most_viewed_posts'] = posts[16:22]
+        context['most_viewed_posts'] = posts[20:24]
 
         return context
