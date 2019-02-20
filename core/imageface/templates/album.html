@@ -58,22 +58,25 @@
       </div>
     </div>
   </header>
-<br>
+  <br>
   <main role="main">
-      {% block content %}
-      <div class="container">
-          <div class="card-deck">
-            {% for post in object_list %}
-            <div class="card my-2">
-                <img class="card-img-top post-thumbnail" src="{{ post.thumbnail }}" alt="{{ post.thumbnail_description }}">
-                <div class="card-body">
-                   <a href="{% url 'single_post' post.pk %}" class="card-title text-center font-weight-bold text-capitalize">{{ post.title }}</a>
-                </div>
-             </div>
-             {% endfor %}
+    {% block content %}
+    <div class="container">
+      <div class="card-deck">
+        {% for post in object_list %}
+        <div class="card my-2">
+          <a href="{{ post.get_absolute_url }}">
+            <img class="card-img-top post-thumbnail" src="{{ post.thumbnail }}" alt="{{ post.thumbnail_description }}">
+          </a>
+          <div class="card-body">
+            <a href="{% url 'single_post_slug' post.slug post.pk %}"
+              class="card-title text-center font-weight-bold text-capitalize">{{ post.title }}</a>
           </div>
         </div>
-      {% endblock content %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endblock content %}
   </main>
 
   <footer class="text-muted">
@@ -81,9 +84,7 @@
       <p class="float-right">
         <a href="#">Back to top</a>
       </p>
-      <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-      <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting
-          started guide</a>.</p>
+      <p>&copy; 2019 Fanabe</p>
     </div>
   </footer>
 

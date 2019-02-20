@@ -18,5 +18,6 @@ from . import views
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
-    path('post/<int:pk>/', views.SingleView.as_view(), name='single_post'),
+    path('post/<int:pk>', views.SinglePostIDView.as_view(), name='single_post_id'),
+    path('post/<str:slug>-<int:pk>', views.SinglePostSlugView.as_view(), name='single_post_slug'),
 ]

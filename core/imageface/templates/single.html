@@ -1,22 +1,104 @@
-{% extends 'index.html' %}
-{% block content %}
-<div id="blog-holder">
-    <div class="blog-background"></div>
-    <div class="grid">
+{% extends 'album.html' %}
 
-        {% for image_url in post.images %}
-        <article class="grid-item element-item p_one_fourth">
-            <a class="img relative" href="{{ image_url }}">
-                <img src="{{ image_url }}" alt="">
-            </a>
-        </article>
-        {% endfor %}
-        <br>
-        <div class="clear"></div>
-        <div class="content-wrap">
-            <p>{{ post.text }}</p>
-        </div>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{post.title|title}}</h2>
+                <p class="blog-post-meta">{{post.published_date}}</p>
+
+                <hr>
+                <div class="card-deck">
+                    {% for image_entry in paginated_images %}
+                    <div class="card my-2">
+                        <a href="{{ image_entry.ou }}">
+                            <img class="card-img-top post-thumbnail" src="{{ image_entry.ou }}"
+                                alt="{{ image_entry.s|title }}">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <hr>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center blog-pagination">
+                        {% if paginated_images.has_previous %}
+                        <li class="page-item">
+                                <a class="page-link" href="?page=1"
+                                    tabindex="-1">First</a>
+                            </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ paginated_images.previous_page_number }}"
+                                tabindex="-1">Previous</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item"><a class="page-link" href="#">Page {{ paginated_images.number }} of
+                                {{ paginated_images.paginator.num_pages }}</a>
+                        </li>
+                        {% if paginated_images.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ paginated_images.next_page_number }}">Next</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ paginated_images.paginator.num_pages }}">Last</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+
+
+                <div class="blog-post-content mt-10">
+                    <p>{{paginated_text|title}}</p>
+                </div>
+
+            </div>
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar bg-light">
+            <div class="p-3 mb-3 rounded">
+                <h4 class="font-italic">Hướng dẫn</h4>
+                <p class="mb-0">Click chuột vào <strong>mỗi hình</strong> để xem hình ảnh với độ phân giải cao nhất</p>
+            </div>
+
+            <h4 class="font-italic mt-6">Vừa mới tạo</h4>
+            <div class="card-deck sidebar-card-deck">
+                {% for post in last_posts %}
+                <div class="card my-2">
+                    <a href="{% url 'single_post_slug' post.slug post.pk %}">
+                        <img class="card-img-top sidebar-post-thumbnail" src="{{ post.thumbnail }}"
+                            alt="{{ post.title }}">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <h4 class="font-italic mt-6">Xem nhiều nhất</h4>
+            <div class="card-deck sidebar-card-deck">
+                {% for post in most_viewed_posts %}
+                <div class="card my-2">
+                    <a href="{% url 'single_post_slug' post.slug post.pk %}">
+                        <img class="card-img-top sidebar-post-thumbnail" src="{{ post.thumbnail }}"
+                            alt="{{ post.title }}">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="p-3">
+                <h4 class="font-italic">Elsewhere</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </aside><!-- /.blog-sidebar -->
 
     </div>
+</div>
 
-    {% endblock content %}
+{% endblock content %}
