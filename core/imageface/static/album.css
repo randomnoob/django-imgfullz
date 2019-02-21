@@ -130,6 +130,12 @@ footer p {
   object-fit: cover;
 }
 
+.featured-post-thumbnail {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
 .blog-post-content {
   margin-top: 6rem;
 }

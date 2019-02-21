@@ -16,44 +16,47 @@
 
   <!-- Custom styles for this template -->
   <link href="{% static 'album.css' %}" rel="stylesheet">
-  <link href="{% static 'bootstrap-social.css' %}" rel="stylesheet">
+  <link href="{% static 'responsive-social.css' %}" rel="stylesheet">
 
-  <!-- Font Awesome for sharing buttons -->
-  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- for sharing buttons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 </head>
 
 <body>
+  <div id="fb-root"></div>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+
 
   <header>
     <div class="collapse bg-dark" id="navbarHeader">
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">Add some information about the album below, the author, or any other background
-              context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off
-              to some social networking sites or contact information.</p>
+            <h4 class="text-white">Liên hệ</h4>
+            <p class="text-muted">Hệ thống {{site_name}} hoạt động tự động dựa trên nguyên lý của các cỗ máy tìm kiếm, các hình ảnh trên {{site_name}} đều được thu thập từ động từ internet, chúng tôi không lưu trữ bất kì hình ảnh nào, tất cả hình ảnh đều được bảo lưu mọi bản quyền của các trang web gốc. Nếu có bất kì vi phạm nào vui lòng liên hệ với chúng tôi qua email {{site_mail}} để gỡ bỏ nhanh nhất. Xin cảm ơn!
+
+            </p>
           </div>
-          <div class="col-sm-4 offset-md-1 py-4">
+          <!-- <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Contact</h4>
             <ul class="list-unstyled">
               <li><a href="#" class="text-white">Follow on Twitter</a></li>
               <li><a href="#" class="text-white">Like on Facebook</a></li>
               <li><a href="#" class="text-white">Email me</a></li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
     <div class="navbar navbar-dark bg-dark box-shadow">
       <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
+        <a href="/" class="navbar-brand d-flex align-items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
             <circle cx="12" cy="13" r="4"></circle>
           </svg>
-          <strong>Website</strong>
+          <strong>{{site_name}}</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
           aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,6 +105,8 @@
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/holder.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/eqcss/1.2.2/EQCSS.min.js"></script>
+  
 </body>
 
 </html>

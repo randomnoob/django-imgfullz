@@ -17,6 +17,7 @@ emoji = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
 django-social-share = "*"
+objgraph = "*"
 
 [requires]
 python_version = "3.6"

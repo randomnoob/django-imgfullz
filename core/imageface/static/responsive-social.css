@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+  }
+  [data-social] {
+    margin: 1em auto;
+  }
+  [data-social]:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  [data-social] a {
+    display: inline-block;
+    font-family: sans-serif;
+    line-height: 1;
+    padding: .5em;
+    float: left;
+    color: white;
+    font-size: 20pt;
+    min-width: 1em;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity .2s ease-in-out;
+  }
+  [data-social] a:focus,
+  [data-social] a:hover {
+    opacity: .7;
+  }
+  [data-social] a span {
+    margin-left: .5em;
+  }
+  [data-social] [class*=facebook] {
+    background: #3b5998;
+  }
+  [data-social] [class*=twitter] {
+    background: #2caae1;
+  }
+  [data-social] [class*=youtube] {
+    background: #cb2027;
+  }
+  [data-social] [class*=linkedin] {
+    background: #007bb6;
+  }
+  [data-social] [class*=reddit] {
+    background: #cb2027;
+  }
+  [data-social] [class*=telegram] {
+    background: #0088cc;
+  }
+  [data-social] a:nth-of-type(n+2) {
+    margin-left: .5em;
+  }
+  @element '[data-social] a' and (max-width: 15em) {
+    $this span {
+      display: none;
+    }
+  }
+  @element '[data-social] a' {
+    $this {
+      width: calc(eval('100 / parentNode.children.length')% - .5em + eval('.5 / parentNode.children.length')em);
+    }
+  } 

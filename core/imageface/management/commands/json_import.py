@@ -9,7 +9,7 @@ from django.db.utils import DataError
 from django.utils.text import slugify
 
 
-DATA_INPUT_PATH = '/home/nl/dev/django/core/downloaded-json/'
+DATA_INPUT_PATH = '/media/nl/ddrive/keywords/batch3'
 
 
 def remove_emoji(text):
@@ -31,8 +31,6 @@ def timeit(method):
     return timed
 
 
-# parse_json('/home/nl/dev/django/imgfullz/downloaded-json/alum.json')
-
 class Command(BaseCommand):
     args = '<foo bar ...>'
     help = 'our help string comes here'
@@ -43,17 +41,16 @@ class Command(BaseCommand):
             for f in filenames:
                 yield os.path.abspath(os.path.join(dirpath, f))
 
-    def parse_json(self, json_path):
+    def parse_json_new_format(self, json_path):
         try:
+            print ("Opening {}".format(json_path))
             with open(json_path, 'r') as input:
                 reader = json.load(input)
                 keyword = reader['keyword']
                 slug = slugify(keyword, allow_unicode=True)
-                texts = [x['s'] for x in reader['metadata']]
-                joined_texts = ' '.join(texts)
                 _user, user_is_created = get_user_model().objects.get_or_create(pk=1)
                 _post, post_is_created = Post.objects.get_or_create(
-                    author=_user, title=keyword, slug=slug, text=joined_texts, contents=json.dumps(reader))
+                    author=_user, title=keyword, slug=slug, contents=json.dumps(reader))
                 print('-----\n{} ==> {}\n-----'.format(keyword, slug))
         except DataError:
             traceback.print_exc()
@@ -63,7 +60,7 @@ class Command(BaseCommand):
         all_files = self.get_files(path)
         for index, file in enumerate(all_files):
             print("Processing entry number {}".format(index+1))
-            self.parse_json(file)
+            self.parse_json_new_format(file)
 
     @timeit
     def handle(self, *args, **options):

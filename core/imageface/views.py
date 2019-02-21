@@ -45,5 +45,6 @@ class SinglePostSlugView(DetailView):
         posts = Post.objects.filter(published_date__lte=timezone.now())
         context['last_posts'] = posts[:6]
         context['most_viewed_posts'] = posts[20:24]
+        context['featured_posts'] = posts[16:20]
 
         return context
