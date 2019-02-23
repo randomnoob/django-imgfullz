@@ -15,7 +15,7 @@
                 <div class="card-deck">
                     {% for image_entry in paginated_images %}
                     <div class="card my-2">
-                        <a href="{{ image_entry.ou }}">
+                        <a href="{{ image_entry.ou }}" target="_blank">
                             <img class="card-img-top detail-thumbnail" src="{{ image_entry.ou }}"
                                 alt="{{ image_entry.s|title }}">
                         </a>
