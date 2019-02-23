@@ -7,8 +7,13 @@ from .models import Post
 
 
 class HomeView(ListView):
-    model = Post
-    template_name = 'album.html'
+    # model = Post
+    template_name = 'index.html'
+    paginate_by = 20
+    def get_queryset(self):
+        all_posts = Post.objects.all().count()
+        last200 = Post.objects.filter(pk__gte=all_posts-200)
+        return last200
 
 class SinglePostIDView(DetailView):
     model = Post
@@ -42,9 +47,15 @@ class SinglePostSlugView(DetailView):
         context['paginated_images'] = post_images_data_paginator_obj
         context['paginated_text'] = " ".join([x['s'] for x in post_images_data_paginator_obj.object_list])
 
-        posts = Post.objects.filter(published_date__lte=timezone.now())
-        context['last_posts'] = posts[:6]
+        posts = Post.objects.filter(pk__lte=500,pk__gte=100)
+        context['last_posts'] = posts[60:66]
         context['most_viewed_posts'] = posts[20:24]
         context['featured_posts'] = posts[16:20]
 
         return context
+
+
+class ArchiveView(ListView):
+    model = Post
+    template_name = 'archive.html'
+    paginate_by = 20

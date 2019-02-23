@@ -5,11 +5,11 @@ import traceback
 from imageface.models import Post
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
-from django.db.utils import DataError
+from django.db.utils import DataError, IntegrityError
 from django.utils.text import slugify
 
 
-DATA_INPUT_PATH = '/media/nl/ddrive/keywords/batch3'
+DATA_INPUT_PATH = '/media/nl/New Volume/vietnamese-74k'
 
 
 def remove_emoji(text):
@@ -52,7 +52,7 @@ class Command(BaseCommand):
                 _post, post_is_created = Post.objects.get_or_create(
                     author=_user, title=keyword, slug=slug, contents=json.dumps(reader))
                 print('-----\n{} ==> {}\n-----'.format(keyword, slug))
-        except DataError:
+        except (DataError, IntegrityError):
             traceback.print_exc()
             pass
 

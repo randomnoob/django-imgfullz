@@ -1,174 +1,152 @@
 {% load static %}
-{% load get_item %}
-<html lang="en-US">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>Rea - Html Responsive Template</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="Template by Dry Themes" />
-    <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
-    <meta name="author" content="DryThemes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="{% static 'favicon.ico' %}">
 
-    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel="{% static 'stylesheet' %}"
-        type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/clear.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/carouFredSel.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/animated-headline.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/sm-clean.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  <title>{% block title %}Trang chủ{% endblock title %} - {{site_name}}</title>
 
-    <!--[if lt IE 9]>
-                <script src="{% static 'js/html5shiv.js' %}"></script>                
-                <script src="{% static 'js/respond.min.js' %}"></script>                
-        <![endif]-->
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
+  <!-- Custom styles for this template -->
+  <link href="{% static 'album.css' %}" rel="stylesheet">
+  <link href="{% static 'responsive-social.css' %}" rel="stylesheet">
+
+  <!-- for sharing buttons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 </head>
 
-<body class="blog">
-    <header class="header-holder center-relative relative">
-        <div class="header-logo">
-            <a href="index.html">
-                <img src="{% static 'images/reaDefaultLogo.png' %}" alt="Rea">
-            </a>
-        </div>
-        <div class="header-txt">
-            <h1 class="entry-title">
-                <span class="entry-title cd-headline letters type">
-                    <span>pixel preciese</span>
-                    <span class="cd-words-wrapper waiting">
-                        <b class="is-visible">web resources</b>
-                        <b>psd files</b>
-                        <b>mockups</b>
-                    </span>
-                    <span class="sec-line">to suit all your needs.</span>
-                </span>
-            </h1>
-        </div>
-
-        <div class="clear"></div>
-    </header>
-    {% block content %}
-    <div id="blog-holder">
-        <div class="blog-background"></div>
-        <div class="grid">
-            <div class="grid-sizer"></div>
+<body>
+  <div id="fb-root"></div>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
 
 
-            {% for post in object_list %}
-            <article class="grid-item element-item p_one_fourth">
-                <a class="img relative" href="{% url 'single_post' post.pk %}"">
-                    <img src="{{ post.thumbnail }}" alt="">
-                    <div class="item-info">
-                        <span class="prev">{{ post.views }}</span>
-                    </div>
-                </a>
-                <div class="entry-content">
-                    <h2 class="entry-title">
-                        <a href="{% url 'single_post' post.pk %}">{{ post.title }}</a>
-                    </h2>
-                </div>
-            </article>
-            {% endfor %}
-    {% endblock content %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {% block content %}
-    <div class="album py-5 bg-light">
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
       <div class="container">
-        <div class="card-deck">
-          {% for post in object_list %}
-          <div class="card my-3">
-            <a class="img relative" href="{% url 'single_post' post.pk %}"">
-                <img class=" card-img-top" src="{{ post.thumbnail }}" alt="Card image cap">
-            </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">Liên hệ</h4>
+            <p class="text-muted">Hệ thống {{site_name}} hoạt động tự động dựa trên nguyên lý của các cỗ máy tìm kiếm,
+              các hình ảnh trên {{site_name}} đều được thu thập từ động từ internet, chúng tôi không lưu trữ bất kì hình
+              ảnh nào, tất cả hình ảnh đều được bảo lưu mọi bản quyền của các trang web gốc. Nếu có bất kì vi phạm nào
+              vui lòng liên hệ với chúng tôi qua email {{site_mail}} để gỡ bỏ nhanh nhất. Xin cảm ơn!
+
+            </p>
           </div>
-          {% endfor %}
-          {% endblock content %}
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Pages</h4>
+            <ul class="list-unstyled">
+              <li><a href="/archive" class="text-white">Archive</a></li>
+              <li><a href="/random" class="text-white">Random Articles</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-        <div class="clear"></div>
-
-
-        <img class="blog-img" src="{% static 'demo-images/blog-img.png' %}" alt="">
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <strong>{{site_name}}</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
     </div>
-
-    <div class="clear"></div>
-
-    <footer class="footer">
-        <div class="content-1170 center-relative">
-            <ul id="footer-sidebar">
-
-                <li class="widget">
-                    <div class="textwidget custom-html-widget">
-
-                        Copyright &copy;2019 All rights reserved | Made with <i class="fa fa-heart-o"
-                            aria-hidden="true"></i> by <a href="/" target="_blank">Fanabe</a>
-                    </div>
-                </li>
-            </ul>
+  </header>
+  <br>
+  <main role="main">
+    {% block content %}
+    <div class="container">
+      <div class="card-deck">
+        {% for post in object_list %}
+        <div class="card my-2">
+          <a href="{{ post.get_absolute_url }}">
+            <img class="card-img-top post-thumbnail" src="{{ post.thumbnail }}" alt="{{ post.thumbnail_description }}">
+          </a>
+          <div class="card-body">
+            <a href="{% url 'single_post_slug' post.slug post.pk %}"
+              class="card-title text-center font-weight-bold text-capitalize">{{ post.title }}</a>
+          </div>
         </div>
-    </footer>
+        {% endfor %}
+      </div>
+    </div>
+    {% endblock content %}
 
-    <!--Load JavaScript-->
-    <!-- <script src="{% static 'js/jquery.js' %}"></script>			                                       
-        <script src="{% static 'js/jquery.fitvids.js' %}"></script>
-        <script src="{% static 'js/jquery.smartmenus.min.js' %}"></script>        
-        <script src="{% static 'js/imagesloaded.pkgd.js' %}"></script>         -->
-    <!-- <script src="{% static 'js/isotope.pkgd.js' %}"></script>         -->
-    <!-- <script src="{% static 'js/jquery.carouFredSel-6.0.0-packed.js' %}"></script> -->
-    <!-- <script src="{% static 'js/jquery.mousewheel.min.js' %}"></script> -->
-    <!-- <script src="{% static 'js/jquery.touchSwipe.min.js' %}"></script> -->
-    <!-- <script src="{% static 'js/jquery.easing.1.3.js' %}"></script> -->
-    <!-- <script src="{% static 'js/main-headline.js' %}"></script> -->
-    <!-- <script src="{% static 'js/jquery.sticky-kit.min.js' %}"></script> -->
-    <!-- <script src="{% static 'js/jquery.ba-throttle-debounce.min.js' %}"></script>                 -->
-    <!-- <script src="{% static 'js/jquery.nicescroll.min.js' %}"></script> -->
-    <!-- <script src="{% static 'js/main.js' %}"></script> -->
+    
+    {% block home_pagination%}
+    {% if is_paginated %}
+    <nav aria-label="Page Navigation"></nav>
+    <ul class="pagination justify-content-center blog-pagination mt-5">
+      {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+      </li>
+      {% else %}
+      <li class="page-link disabled"><span>&laquo;</span></li>
+      {% endif %}
+
+      {% for i in paginator.page_range %}
+        {% if page_obj.number == i %}
+        <li class="page-item active">
+          <a class="page-link" href="#" >{{ i }}</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+        </li>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+      </li>
+      {% else %}
+      <li class="page-link disabled"><span>&raquo;</span></li>
+      {% endif %}
+    </ul>
+    </nav>
+    {% endif %}
+    {% endblock home_pagination %}
+
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>&copy; 2019 Fanabe</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="{% static 'js / jquery - slim.min.js' %}"><\/script>')</script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/holder.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/eqcss/1.2.2/EQCSS.min.js"></script>
+
 </body>
 
 </html>
