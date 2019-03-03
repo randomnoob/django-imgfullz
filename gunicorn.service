@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=nl
+Group=www-data
+WorkingDirectory=/home/nl/django-imgfullz/core
+ExecStart=/home/nl/.local/share/virtualenvs/django-imgfullz-5wDsPdyt/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/nl/core_gunicorn.sock core.wsgi:application --log-level debug
+
+[Install]
+WantedBy=multi-user.target
+
+
