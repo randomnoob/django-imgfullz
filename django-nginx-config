@@ -1,0 +1,15 @@
+server {
+    server_name xxx.com;
+
+    access_log off;
+
+    location /static/ {
+        alias /home/nl/django-imgfullz/core/imageface/static/;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/nl/core_gunicorn.sock;
+    }
+}
+
