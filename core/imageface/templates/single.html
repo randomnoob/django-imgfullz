@@ -17,7 +17,7 @@
                     <div class="card my-2">
                         <a href="{{ image_entry.ou }}" target="_blank">
                             <img class="card-img-top detail-thumbnail" src="{{ image_entry.ou }}"
-                                alt="{{ image_entry.s|title }}">
+                                alt="{{ image_entry.s|title }}"  onError="this.onerror=null;this.src='https://via.placeholder.com/250x250.jpg?text=Click+để+xem';">
                         </a>
                     </div>
                     {% endfor %}
