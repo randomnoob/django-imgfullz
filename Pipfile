@@ -13,6 +13,7 @@ ipython = "*"
 pylint = "*"
 psycopg2 = "*"
 django-social-share = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"
