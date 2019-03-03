@@ -75,7 +75,7 @@
         {% for post in object_list %}
         <div class="card my-2">
           <a href="{{ post.get_absolute_url }}">
-            <img class="card-img-top post-thumbnail" src="{{ post.thumbnail }}" alt="{{ post.thumbnail_description }}">
+            <img class="card-img-top post-thumbnail" src="{{ post.thumbnail }}" alt="{{ post.thumbnail_description }}" onError="this.onerror=null;this.src='https://via.placeholder.com/250x250.jpg?text=Click+để+xem';">
           </a>
           <div class="card-body">
             <a href="{% url 'single_post_slug' post.slug post.pk %}"
