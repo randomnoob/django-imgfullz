@@ -7,6 +7,7 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from django.db.utils import DataError, IntegrityError
 from django.utils.text import slugify
+from json.decoder import JSONDecodeError
 
 
 DATA_INPUT_PATH = '/media/nl/New Volume/vietnamese-74k'
@@ -52,7 +53,7 @@ class Command(BaseCommand):
                 _post, post_is_created = Post.objects.get_or_create(
                     author=_user, title=keyword, slug=slug, contents=json.dumps(reader))
                 print('-----\n{} ==> {}\n-----'.format(keyword, slug))
-        except (DataError, IntegrityError):
+        except (DataError, IntegrityError, JSONDecodeError):
             traceback.print_exc()
             pass
 
