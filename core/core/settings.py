@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qzyk+-o@6o4jt5yo#s%8%(l$kl+mk+z574-w%i*okn=b@1fq0*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000', '127.0.0.1', 'haynhat.pro']
 
 
 # Application definition
@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'imgcore',
-        'USER': 'imgcore',
+        'NAME': 'haynhatpro',
+        'USER': 'haynhatpro',
         'PASSWORD': 'mangto535',
         'HOST': 'localhost',
         'PORT': '5432',
